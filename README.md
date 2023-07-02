@@ -3,7 +3,22 @@
 ### Course Overview
 Codecademy "Learn Data Structures and Algorithms with Python" (https://www.codecademy.com/learn/learn-data-structures-and-algorithms-with-python)
 
-Started on June 14, 2023 - Completed on June 30, 2023
+Started on June 14, 2023 - Completed on July 3, 2023
+
+### Directory Organisation
+- `algorithms`
+  - `brute_force_algorithms`
+  - `divide_and_conquer_algorithms`
+  - `greedy_algorithms`
+  - `sorting_algorithms`
+- `basics`
+  - `pattern_searching`
+  - `recursion`
+- `data_structures`
+  - `graphs`
+  - `heaps`
+  - `linked_lists_and_hash_maps`
+  - `trees`
 
 ### Syllabus (19 units):
 * Introduction to Data Structures and Algorithms
