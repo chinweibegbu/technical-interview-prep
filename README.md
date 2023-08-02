@@ -1,42 +1,21 @@
 # Interview Prep - Data Structures and Algorithms
 
-### Course Overview
-Codecademy "Learn Data Structures and Algorithms with Python" (https://www.codecademy.com/learn/learn-data-structures-and-algorithms-with-python)
+## Directory Organisation
+- `dsa_with_python`
+  - `algorithms`
+  - `basics`
+  - `data_structures`
+- `leetcode`
+  - `leetcode_prep`
+  - `leetcode_150`
 
-Started on June 14, 2023 - Completed on July 3, 2023
+## Content
+### Section 1: DSA Overview
+Aim: Use the Codecademy "Learn Data Structures and Algorithms with Python" course to refresh my DSA knowledge as well as practice implementation with Python.
 
-### Directory Organisation
-- `algorithms`
-  - `brute_force_algorithms`
-  - `divide_and_conquer_algorithms`
-  - `greedy_algorithms`
-  - `sorting_algorithms`
-- `basics`
-  - `pattern_searching`
-  - `recursion`
-- `data_structures`
-  - `graphs`
-  - `heaps`
-  - `linked_lists_and_hash_maps`
-  - `trees`
+### Section 2: Technical Interview Problem Solving
+#### Sub-Section 2.1: Leetcode Preparation
+**Aim**: Solve simple Leetcode questions covering a variety of data structures and algorithms in order to prepare for the Leetcode Top Interview 150. See the full plan here: [https://docs.google.com/Technical-Interview-Prep](https://docs.google.com/document/d/1FiEIrTheqLYO_UXNtOJwoUmxMw1XAIrKrxJjsdKEo8w/edit#heading=h.h1w8bnssfcrv)
 
-### Syllabus (19 units):
-* Introduction to Data Structures and Algorithms
-* Nodes
-* Linked Lists
-* Doubly Linked Lists
-* Queues
-* Stacks
-* Hash Maps
-* Recursion
-* Asymptotic Notation
-* Pattern Searching
-* Sorting Algorithms
-* Brute Force Algorithms
-* Trees
-* Tree Traversal
-* Divide and Conquer
-* Heaps and Heap Sort
-* Graphs and Graph Search
-* Greedy Algorithms
-* Pathfinding Algorithms
+#### Sub-Section 2.1: The Leetcode 150
+**Aim**: Solve 150 Leetcode technical interview questions with the use of the Leetcode "Top Interview 150" plan. See the plan here: [https://leetcode.com/studyplan/top-interview-150](https://leetcode.com/studyplan/top-interview-150/)
