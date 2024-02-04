@@ -30,7 +30,7 @@
 ⌛07:07:23 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/linked-list-cycle/)
 
 * Solution Approach: Use a dictionary to keep track of visited nodes. Parse until (A) you visit an already-visited node or (B) you reach the end of the linked list (B). If (A), there is a cycle so return True. If (B), there is no cycle so return False. → **O(n)**
-* Optimal Approach: Use slow and fast pointers. Parse until (A) slow and fast are the same or (B) fast or fast's next is None. If (A), there is a cycle so return True. If (B), there is no cycle so return False → **O(n)** *
+* Optimal Approach: Use slow and fast pointers. Parse until (A) slow and fast are the same or (B) fast or fast's next is None. If (A), there is a cycle so return True. If (B), there is no cycle so return False → **O(n)** (??)
 
 **NOTE:** The approach above is less an optimal approach than it is an alternative approach. It came to mind as another way to implement the solution, as I am aware this approach is common. However, I did not use it because, one, I cannot explain why the two pointers are guaranteed to meet with discrete steps (I say this because the runner or "tortoise-hare" analogy uses a continuous distance which I do not think is applicable). Two, because of the reason above, I am unable to figure out the time complexity. 
 
