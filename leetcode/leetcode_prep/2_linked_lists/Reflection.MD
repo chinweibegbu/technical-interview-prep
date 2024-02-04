@@ -35,18 +35,26 @@
 **NOTE:** The approach above is less an optimal approach than it is an alternative approach. It came to mind as another way to implement the solution, as I am aware this approach is common. However, I did not use it because, one, I cannot explain why the two pointers are guaranteed to meet with discrete steps (I say this because the runner or "tortoise-hare" analogy uses a continuous distance which I do not think is applicable). Two, because of the reason above, I am unable to figure out the time complexity. 
 
 ### #1290 Convert binary number in a linked list to integer
-⌛00:00:00 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/)
+⌛15:19:20 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/)
 
-* Initial Approach: Content → **O(n<sup>2</sup>)** ??
-* Solution Approach: Content → **O(n)**
-* Optimal Approach: Content → **O(n)** *
+* Initial Approach: Parse the linked list to make a list of the elements. Create a list with list comprehension of the same length to create the elements matching exponents. Loop through both lists and add the multiplication results to an accumulator variable that you return → **O(n)**, **O(n)**
+* Solution Approach: Parse the linked list once to get the number of elements. Create an accumulator variable. Parse the linked list a second time, this time, adding the multiplication results to an accumulator variable as you parse. Return the accumulator value. → **O(n)**, **O(1)**
+* Optimal Approach: Parse once to get digits in one variable. Use the `int()` function to convert to base 10 by passing 2 as the second paramter. → **O(n)**, **O(??)** <br>
+  **NOTE**: Something I am not sure what the complexities of these are because I do not know the space complexity of the call to `int()`. This is an issue I have with using in-built functions. While they could be simpler or more intuitive to use, I am rarely able to explain the space and time complexities with confidence. Any which way, this approach finished faster 
+
+**QUESTION**: Am I supposed to code the constraints given into my solution? <br>
+**NOTE**: I would have finished a lot sooner but I tried to optimise before I got a coded a functioning solution which you are NOT supposed to do (refer to your [Cracking The Coding Interview notes](https://docs.google.com/document/d/1BdfNWFO4fCR1v5WNYkGi9L7HXz14rnNA97iZgpBPrFQ/edit#heading=h.lu8hv7degdu))
 
 ### #203 Removed linked list elements
-⌛00:00:00 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/remove-linked-list-elements/)
+⌛15:02:62 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/remove-linked-list-elements/)
 
-* Initial Approach: Content → **O(n<sup>2</sup>)** ??
-* Solution Approach: Content → **O(n)**
-* Optimal Approach: Content → **O(n)** *
+* Solution Approach: Check that the list is not empty. Parse the linked list until the end (as there can be multipel nodes with the value to be deleted) + Track prev and cur
+  *  If cur matches the value and is head, point head to its next and point cur to the new head
+  *  If cur matches the value and it is NOT head, point prev's .next to cur's .next and point cur to its .next as well <br>
+    **NOTE**: I do not update prev itself because we deleted the node in front of it. Thus, the new cur's prev has NOTE changed
+  *  Else, move both cur and prev one node forward
+    → **O(n)**, **O(1)**
+* Alternative Approach: Parse the list once to get the non-value elements. Create a new linked list and return its head. → **O(n)**, **O(n)**
 
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
