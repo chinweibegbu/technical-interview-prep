@@ -34,25 +34,58 @@
   * Operating outside of the two stack limitation (e.g. only using one list)
 
 ### #225 Implement stack using queues
-⌛00:00:00 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/implement-stack-using-queues/)
+⌛21:41:92 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/implement-stack-using-queues/)
 
-* Initial Approach: Content → **O(n)**, **O(1)**
-* Solution Approach: Content → **O(n)**, **O(1)**
+* Solution Approach: Keep track of two queues, main and holder, and the current size of the stack. Use `deque` from the `collections` library. Use `appendleft()` to insert to the back of the deque and `pop()` to remove from the front of the deque. 
+  * `push()`: Add element to back of queue. Increment size. → **O(1)**, **O(1)**
+  * `pop()`: Move all elements to holder. Reduce size by one. Move all but one element back to main. Return the last element in holder. → **O(n)**, **O(1)**
+  * `top()`: Move all elements to holder, while keeping track of the last element popped. Move all elements back to main. Return the tracked last popped element. → **O(n)**, **O(1)**
+  * `empty()`: Return whether size is greater than zero or not. → **O(1)**, **O(1)**
 * Alternative Approach: Content → **O(n)**, **O(n)**
+
+⌛07:00:88 &nbsp;&nbsp; | &nbsp;&nbsp; CONSTRAINT: Use only one queue
+
+* Solution Approach: Keep track of a queue of type `deque` and the current size of the stack. 
+  * `push()`: Add element to back of queue. Increment size. → **O(1)**, **O(1)**
+  * `pop()`: Remove and add all but one element back to the queue. Reduce size by one. Return the new first element in the queue which was the LAST IN. → **O(n)**, **O(1)**
+  * `top()`: Remove , note and add all elements back to the queue. Return the last noted element which was the LAST IN. → **O(n)**, **O(1)**
+  * `empty()`: Return whether size is greater than zero or not. → **O(1)**, **O(1)**
+* Optimal Approach: Same as mine above but utilise the `len()` function to figure out the number of elements in the queue. This removes the need to track size or initialise counter for looping.
+
+**NOTE:** Remember to check what the constraints of the function are. Discuss this with the interviewer so that you code no less or more than is needed.
+**NOTE**: Make a conscious effort to ensure your while loop has a stop condition and/or `break` statement
 
 ### #155 Min stack
-⌛00:00:00 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/min-stack/)
+⌛19:42:10 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/min-stack/)
 
-* Initial Approach: Content → **O(n)**, **O(1)**
-* Solution Approach: Content → **O(n)**, **O(1)**
-* Alternative Approach: Content → **O(n)**, **O(n)**
+* Solution Approach: Store elements in tuples, in the format (val, min), where min is the minimum value of the stack as at when it was entered. This works because we can only access elements in a specific order. 
+  * `push()`: If stack is empty, add the element as (val, val). Else, get the minimum. If the new value is not less than the minimum, add the tuple as (val, minimum); else, add the tuple as (val, val) → **O(1)**, **O(1)**
+  * `pop()`: Return the value of the top element tuple → **O(1)**, **O(1)**
+  * `top()`: Remove and note the top element. Add it back to the stack. Return the value of the noted element tuple. → **O(1)**, **O(1)**
+  * `getMin()`: Remove and note the top element. Add it back to the stack. Return the min of the noted element tuple. → **O(1)**, **O(1)** → **O(n)**, **O(1)**
+* Alternative Approach:
+  * Use a dictionary
+  * Use a linked list
+  * Use two stacks, main and minStack such that: (see solution explanation [here](https://leetcode.com/problems/min-stack/solutions/4182878/o-1-python-step-by-step-explanation)):
+    * `push()`: Push new val to the stack. Get the top element and compare it to the new val, then add the minimum of those two to the minStack.
+    * `pop()`: Pop from both stacks but only return the value from the main stack
+    * `top()`: Return the value at the top of the main stack
+    * `getMin()`: Return the value at the top of minStack <br>
+  **NOTE**: This alternative is the same as my approach but it separates the tuples I am storing into two different stacks. 
 
 ### #1441 Build an array with stack operations
-⌛00:00:00 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/build-an-array-with-stack-operations/)
+⌛20:26:86 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/build-an-array-with-stack-operations/)
 
-* Initial Approach: Content → **O(n)**, **O(1)**
-* Solution Approach: Content → **O(n)**, **O(1)**
-* Alternative Approach: Content → **O(n)**, **O(n)**
+* Solution Approach:
+  1. Create an empty stack (with `deque`), a empty list (to hold operations) and index initialised to 0 to point to the current "target" element in the target array
+  2. For x in range 1 to n+1 (which is the range for the stream we are provided):
+      * Add x to the stack
+      * Add "Push" to the operations list
+      * If x does not match the current target, remove it and add "Pop" to the operations list
+        * Else, increment the current target index by 1 (so that it is now pointing to the next element in target which we would NOT pop from the stack being constructed)
+      * If the target array has been constructed (which can only happen when the stack and target array are the same length), break out of the loop
+  3. Return the operations list
+  → **O(n)**, **O(n)**
 
 ### #633 Design Circular Queue
 ⌛00:00:00 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/design-circular-queue/)
