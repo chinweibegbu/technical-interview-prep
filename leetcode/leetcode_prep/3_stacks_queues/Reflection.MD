@@ -88,33 +88,41 @@
   → **O(n)**, **O(n)**
 
 ### #633 Design Circular Queue
-⌛00:00:00 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/design-circular-queue/)
+⌛01:19:14:45 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/design-circular-queue/)
 
-* Initial Approach: Content → **O(n)**, **O(1)**
-* Solution Approach: Content → **O(n)**, **O(1)**
-* Alternative Approach: Content → **O(n)**, **O(n)**
+* Solution Approach: Used an array of a fixed size to implement the queue while keeping track of the index of the front element, rear element (**NOTE**: This is NOT the same as the element at the last index) and the size of the queue. 
+  * `enQueue()`: → **O(n)**, **O(1)**
+    * If full, return False
+    * Iterate from the from to the first empty slot. Place new element in empty slot, update rear pointer and return True
+  * `deQueue()`: → **O(1)**, **O(1)**
+    * If empty, return False
+    * Empty slot at front pointer
+    * If there is anything else in the queue, update front pointer
+    * Return True
+  * `Front()`: If empty, return -1. Else, return element at front pointer. → **O(1)**, **O(1)**
+  * `Rear()`: If empty, return -1. Else, return element at rear pointer. → **O(1)**, **O(1)**
+  * `isEmpty()`: Return if both front pointer and last slot (NOT rear pointer) are both None. → **O(1)**, **O(1)**
+  * `isFull()`: Return if both front pointer and last slot (NOT rear pointer) are both not None. → **O(1)**, **O(1)**
+
+**THOUGHTS**: My runtime did sooooooooooo bad comparatively (only 9.2% faster than all users - insanely low, as I usually get between 60% and 80% faster). And, just by looking at one of the solutions, I realised what the issue was - I used a loop when they were really not needed at all in this code. So, I end up having an O(n) operation where it could be O(1) which is a humongous difference in efficiency. Implementing this increased my relative efficiency to 47.66% faster than all users. Also, I find it difficult to understand really streamlined code which is probably not good; I tend to go for more verbose but more easily understandable code.
+
+**NOTE**: Be sure that your code is able to distinguish between 0 and `None`. Be as specific as possible e.g. `if (x is not None)` rather than `if (x)`. The former would fail for `None` only while the latter will fail for both `None` and 0, which are both falsy values. 
 
 ### #1670 Design Front Middle Back Queue
-⌛00:00:00 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/design-front-middle-back-queue/)
+⌛38:00:00 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/design-front-middle-back-queue/)
 
-* Initial Approach: Content → **O(n)**, **O(1)**
-* Solution Approach: Content → **O(n)**, **O(1)**
-* Alternative Approach: Content → **O(n)**, **O(n)**
+* Initial Approach: Use a list and an element count updated with every push and/or pop operation. Add and split lists with the `+` and `[:]` operators. → **O(1)**, **O(n)** *
+* Solution Approach: Use a list and an element count updated with every push and/or pop operation. Use in-built functions:
+  * `insert(index, el)`
+  * `append()`
+  * `pop(index)`
+  <br> → **O(1)**, **O(n)** *
+* Optimal Approach: Same as mine but calculates the middle in a much more streamlined manner (see [here](https://leetcode.com/problems/design-front-middle-back-queue/solutions/3150143/python3-beats-100)).
+* Alternative Approach: Using two deques (**NOTE**: I did not understand the code I saw with this approach. See one [here](https://leetcode.com/problems/design-front-middle-back-queue/solutions/4290658/o-1-with-simple-two-deques) and another [here](https://leetcode.com/problems/design-front-middle-back-queue/solutions/2912899/python-two-deques-easy-to-understand-o-1))
 
-### #203 Removed linked list elements
-⌛00:00:00 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/remove-linked-list-elements/)
+**THOUGHTS**: I had my approach pat down within the first five minutes but had trouble with finding the middle index. I think I was just not paying attention. I also did not do a walkthrough on paper before I started coding. If I paid more attention, this would not have happened.
 
-* Initial Approach: Content → **O(n)**, **O(1)**
-* Solution Approach: Content → **O(n)**, **O(1)**
-* Alternative Approach: Content → **O(n)**, **O(n)**
-
-### #203 Removed linked list elements
-⌛00:00:00 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/remove-linked-list-elements/)
-
-* Initial Approach: Content → **O(n)**, **O(1)**
-* Solution Approach: Content → **O(n)**, **O(1)**
-* Alternative Approach: Content → **O(n)**, **O(n)**
-
+**NOTE**: Go over in-built functions before an interview. Do not fix a broken wheel. If anything, just explain that you know the time and space efficiency of said wheel (hehe).
 
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
