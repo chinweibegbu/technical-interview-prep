@@ -62,19 +62,55 @@
 **NOTE**: Another case of me not paying attention and just wanting to get the question over with. I had the approach down but I was making silly mistakes. A walkthrough would have also noted the bugs.
 
 ### #2283 Check if number is equal to digit count and digit value
-⌛19:42:10 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/check-if-number-has-equal-digit-count-and-digit-value/)
+⌛26:54:71 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/check-if-number-has-equal-digit-count-and-digit-value/)
 
-* Solution Approach: Content → **O(n)**, **O(1)**
+* Solution Approach:
+  1. Store the length of the string in a variable n
+  2. Parse the string to get the number of occurences of each digit
+  3.  For each index and its value in string:
+      * If the index is a key in occurences but it does not match the value, return False
+      * If the index is NOT a key in occurences and it has a value of more than 0, return False
+  1. If get out of the for loop, return True
+  <br>→ **O(n)**, **O(1)**
+  <br> **NOTE**: I reduced the actual time and space consumption by combining the different if statements resulting in the same thing into one statement and not storing the length in a variable before I used it.
+* Optimal Approach:
+  1. Use `Counter` from the `collections` library to create the occurences dictionary
+  2. Use the `enumerate()` function to get the current index and value of the string in a neat an in-built fashion
+  3. Use the dictionary `get(key, default)` function to get the value of the key and return a default value if it is not in the dictionary (**NOTE**: This will greatly simplify the if statement on line 56 in my solution code)
+  <br>→ **O(n)**, **O(1)**
+* Alternative Approach: Rather than first getting the occurences, check the number of occurences everytime you get to a new index with `str.count(el)` → **O(n<sup>2</sup>)**, **O(1)**
   
 ### #2261 K divisible element subarrays
-⌛20:26:86 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/k-divisible-elements-subarrays/)
+⌛01:26:46:67 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/k-divisible-elements-subarrays/)
 
-* Solution Approach: Content → **O(n)**, **O(1)**
+* Initial Approach: Initialise an empty list. Generate all subarrays. If subarray is valid and NOT in the list, add it. Return the length of the list. → **O(2<sup>n</sup>)**, **O(??)**
+  <br>
+  
+  **NOTE**: This actually does not count as an initial approach as it did not pass all test cases. However, I added it here because the test cases were not all passed because I had exceeded the time limit (the algorithm itself was alright).
+
+* Solution Approach: Same as initial approach:
+  * Use a dictionary instead of a list so that you can separate the arrays by their length to reduce the number of comparisons when checking if it is NOT in the dictionary
+  * Keep a counter every time you add a valid subarray so that you can directly return that rather than calculating the length of the dictionary by iterating through its keys and values
+  → **O(2<sup>n</sup>)**, **O(??)**
+
+  **THOUGHTS**: My relative performance is veeeery poor (faster than only 11% of submissions). I am yet to see what the girlies were doing to get such low runtimes. Maybe there was a way to do it without the O(2<sup>n</sup>) runtime???
+
+* Optimal Approach:
+  * Using a set. → **O(n)**, **O(1)**
+    **THOUGHTS**: This is so embarrassing. Distinct elements and you didn't think of a set? Chai. Granted, I put this question in the "hash map" section and, the more I think about it, the more I realise the box that put me in while I was solving. → Actually, this did NOT work because set elements have to be hashable. → You do NOT have to store the arrays as arrays; you can make them strings or tuples.
+
+**NOTE**: Hashable data types in Python are `int`, `float`, `str`, `tuple`, and `NoneType` 
 
 ### #633 Repeated DNA sequences
-⌛01:19:14:45 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/repeated-dna-sequences/)
+⌛13:06:34 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/repeated-dna-sequences/)
 
-* Solution Approach: Content → **O(n)**, **O(1)**
+* Initial Approach: Sliding window + dictionary to store occurences. Iterate through dictionary `items()` to get sequences that occur more than once. → **O(n)**, **O(n)**
+* Solution Approach: Same as initial approach but get sequences that occur more than once by using list comprehension on the dictionary's `items()` → **O(n)**, **O(n)**
+* Optimal Approach: Same as Solution Approaoch with the following changes
+  1. Change use of `range()` and `break` to `range(length-breakCondition)` → Removes an `if` statement
+  2. If the sequence is in the dictionary, add it to the set that will be returned; Else, add it to the dictionary → Does not create the collection of valid sequences in a separate loop
+  <br>→ **O(n)**, **O(n)**
+* Alternative Approach: Same as Optimal Approach but use two sets → **O(n)**, **O(n)**
 
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
