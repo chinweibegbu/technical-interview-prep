@@ -6,7 +6,7 @@ class TreeNode:
         self.left = left
         self.right = right
 
-class Solution_Solution:
+class Solution:
 
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         # Edge case: Both trees are empty
