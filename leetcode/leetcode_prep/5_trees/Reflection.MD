@@ -39,14 +39,16 @@
 * Optimal Approach: ?? → **O(n)**, **O(1)**
 
 ### #101 Symmetric tree
-⌛08:35:97 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here] (https://leetcode.com/problems/symmetric-tree/)
+⌛01:06:31:62 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here] (https://leetcode.com/problems/symmetric-tree/)
 
-* Initial Approach: Content → **O(n)**, **O(1)**
+* Initial Approach:
+  1. Store the in-order traversal of the tree while distinguishing leaf nodes from a null child
+  2. Return true if the beginning half of the list is the same as the reverse of the last half of the list
+  3. Return false otherwise
+  <br>→ **O(n)**, **O(n)**
 
+**NOTE**: This does not actually qualify as an initial approach as it only passed 189 of 199 tests. I stopped trying after a while (see the image below).
 ![alt text](image.png)
-
-* Solution Approach: Content → **O(n)**, **O(1)**
-* Optimal Approach: Content → **O(n)**, **O(1)**
 
 ### #226 Invert binary tree
 ⌛08:35:97 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/invert-binary-tree/)
@@ -54,6 +56,8 @@
 * Initial Approach: Content → **O(n)**, **O(1)**
 * Solution Approach: Content → **O(n)**, **O(1)**
 * Optimal Approach: Content → **O(n)**, **O(1)**
+
+![alt text](image-1.png)
 
 ### #572 Subtree of another tree
 ⌛08:35:97 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/subtree-of-another-tree/)
