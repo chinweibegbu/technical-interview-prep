@@ -69,12 +69,14 @@
     * Create a new head based on the lesser of both lists' heads
     * Create a tail to make entry O(1)
     * While both lists' pointers are not null, add the lesser of the two current vals to the new list and update the "winner" list and the new list pointer
+    * Connect the end of the list with any remnant to the new list's tail
     * Return the new list's head
 * Initial Approach #2: → **O(n)**, **O(n)**
   * If both lists are empty, return either; Else if one list and the other isn't, return the other
   * Else,
     * Create a new list
     * While both lists' pointers are not null, add the lesser of the two current vals to the new list and update the "winner" list and the new list pointer
+    * Connect the end of the list with any remnant to the new list's tail
     * Return the new list's head's next
 * Optimal approach: Same as Initial Approach #2, but remove the conditional at the beginning, as the code in the final else block covers all cases. → **O(n)**, **O(n)**
 
