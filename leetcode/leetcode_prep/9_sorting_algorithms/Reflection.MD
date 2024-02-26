@@ -69,5 +69,7 @@
    
 **THOUGHTS**: In my opinion, this approach has the same idea as my initial approach but takes a different route. It notes the indices first and then places them, rather than... Oh, I see the difference. It only parses the array once such that step 4-2 in my initial approach which is O(n) ON EACH ITERATION, does not... wow, now that I think about it, my initial approach was actually O(n<sup>2</sup>)... woooooooow, I did NOT realise that. 
 
+**NOTE**: When doing a walkthrough of yoru problem, include an intentional runtime (and space) complexity analysis for EACH LINE and then for the entire function based on the analysis of each line. >>> It not being in a loop or being in a single line does NOT mean it has a runtime complexity of O(1). 
+
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
