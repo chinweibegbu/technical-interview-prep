@@ -71,5 +71,33 @@
 
 **NOTE**: When doing a walkthrough of yoru problem, include an intentional runtime (and space) complexity analysis for EACH LINE and then for the entire function based on the analysis of each line. >>> It not being in a loop or being in a single line does NOT mean it has a runtime complexity of O(1). 
 
+### #561 Array Partition
+⌛08:24:23 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/array-partition/)
+
+* Solution Approach: → **O(n logn)**, **O(n)**
+  * **IDEA**: In order to maximise the sum of minimums, we need to maximise the minimums across all pairs (i.e. it is not enough to have one high minimum and many low ones). Ideally, we would just add the greater half of the array together - however, it is not possible to get that distribution of minimums. The next best possible thing is to take every other minimum in a sorted array.
+  * **ALGORITHM**:
+    1. Sort array
+    2. Create holder variable for maximum possible sum
+    3. Add the min of every pair of elements to created variable
+    4. Return variable
+  * Improvements:
+    1. In \#2, added the first of the pair without using the `min()` operation (we already know it is the first of the pair because the list is sorted in ascending order)
+    2. In \#3: used list comprehension instead of a loop
+* Optimal Approach: Same as Solution approach but more even more streamlined than improvement \#3 by:
+  * Using `sorted()` rather than `sort()` so that the result can be acted on immediately
+  * Using list slicing rather than list comprehension
+    <br><p align=center>`sorted(nums)[::2]`</p> <p align=center>`[sorted[i] for i in range(0, len(sorted), 2)]`</p>
+
+### #414 Third Maximum Number
+⌛03:41:44 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/third-maximum-number/)
+
+* Solution Approach: → **O(n logn)**, **O(n)**
+  * Create a set of nums to get the distinct elements using `set()` → O(n), O(n)
+  * If length of the set is less than 3 (i.e. 0-2 elements), return the maximum element using `max()` → O(1), O(1)
+  * Else, return the third-to-last element of the sorted set using negative indexing → O(n logn), O(n)
+
+**THOUGHTS**: I did not add an optimal or alternative approach because I thought mine was more intuitive with minimal difference in relative runtime and space complexity.
+
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
