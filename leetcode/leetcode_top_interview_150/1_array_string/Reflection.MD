@@ -54,5 +54,40 @@
 
 **NOTE**: Do a better job with identifying and stepping through code with edge cases.
 
+### #26 Remove Duplicates from Sorted Array
+⌛17:12:93 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Solution Approach: → **O(n)**, **O(1)**
+  * **IDEA**: Use pointers to keep track of unique elements in the front of the array with non-unique elements swapped to the back
+  * **ALGORITHM**:
+    1. EDGE CASE: If the arrray has less than two elements, return the length of the array (an empty array has no unique elements and an array with one element has one unique element)
+    2. Initialise pointers to the last index of the unique sub-array (first element i.e. index 0) and a parser pointer to the first element we are unsure is unique (second element i.e. index 1)
+    3. While the parser has not exceeded the length of the array:
+       1. If the last unique element and the current element are not the same, swap the current element with the element IN FRONT of the last unique element then increment the unique pointer
+       2. Increment the parser pointer
+    4. Return the index of the last unique element + 1
+
+**THOUGHTS**: I have solved this before and I solved it a lot faster than the first time (see `../../leetcode_prep/1_arrays/arrays_26.py`). I learned from the lessons of the first two by making sure to step through the code and doing the same for edge cases I thought of. Good job, Chinwe.
+
+### #88 Remove Duplicates from Sorted Array II
+⌛48:45:57 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/?envType=study-plan-v2&envId=top-interview-150)
+
+* Initial Approach: → **O(n)**, **O(1)**
+  * **IDEA**: Use the same approach as with #26 but keep track of the number of times each unique element appears as well
+  * **ALGORITHM**: Frankly, I created an algorithm based on my step-through and I am finding it hard to describe it. Just see `removeDuplicates_initial()`./arrays_80.py`
+* Solution Approach: → **O(n)**, **O(1)**
+  * **IDEA**: Initial approach, but remove the unnecessary swap
+* Optimal Approach: 
+  * [Solution by geekytaurus](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/solutions/4511964/easy-o-n-python-java-go-c-beginner-friendly)
+  * **IDEA**: Move elements to the modified subarray (length represented by u) if there are 2 or less of the current element
+  * **ALGORITHM**:
+    1. Initialize length pointer (u) to 1 (for the first element) and current frequency (f) to 1
+    2. Iterate through the array, starting from index 1 (use "cur" to refer to element)
+    3. If the cur is equal its prev, increment f. Else, reset f to 1
+    4. If f <= 2, update the item after the modified array (i.e. u+1) with cur and increment u
+    5. Continue until the end of the array
+
+**NOTE**: I modified the variable names in the optimal solution for my own understanding. Also. it took me a while to create an "IDEA" sentence for the optimal solution - the "IDEA" sentence should be able to capture the core behind the algorithm. It is not the steps you take but WHY you took them (wod wod wod).
+
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
