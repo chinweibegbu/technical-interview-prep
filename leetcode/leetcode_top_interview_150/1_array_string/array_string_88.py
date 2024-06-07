@@ -1,4 +1,4 @@
-from collections import List
+from typing import List
 
 def merge_solution(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
     """

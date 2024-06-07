@@ -1,4 +1,4 @@
-from collections import List
+from typing import List
 
 def removeDuplicates(nums: List[int]) -> int:
     # Egde case: Less than two elements

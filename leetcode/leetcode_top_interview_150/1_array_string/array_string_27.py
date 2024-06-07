@@ -1,4 +1,4 @@
-from collections import List
+from typing import List
 
 def removeElement_initial(nums: List[int], val: int) -> int:
 

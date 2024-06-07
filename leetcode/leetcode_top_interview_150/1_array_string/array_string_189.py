@@ -1,4 +1,4 @@
-from collections import List
+from typing import List
 
 def rotate_initial(nums: List[int], k: int) -> None:
     """

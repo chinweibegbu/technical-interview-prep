@@ -1,4 +1,4 @@
-from collections import List
+from typing import List
 
 def majorityElement_solution(nums: List[int]) -> int:
     # Sort elements
