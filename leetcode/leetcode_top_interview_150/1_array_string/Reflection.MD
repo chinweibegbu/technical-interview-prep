@@ -89,5 +89,43 @@
 
 **NOTE**: I modified the variable names in the optimal solution for my own understanding. Also. it took me a while to create an "IDEA" sentence for the optimal solution - the "IDEA" sentence should be able to capture the core behind the algorithm. It is not the steps you take but WHY you took them (wod wod wod).
 
+### #169 Majority Element
+⌛04:12:11 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/majority-element/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Solution Approach: → **O(n logn)**, **O(1)**
+  * **IDEA**: Sort the list and return the middle element >>> We can be sure that it is the middle element because the question tells us to assume that the majority element exists, which means there is an element which occurs more than len(nums)/2 times.
+* Optimal Approach: → **O(n logn)**, **O(n)**
+  * **IDEA**: [Boyer-Moore Majority Vote Algorithm](https://www.geeksforgeeks.org/boyer-moore-majority-voting-algorithm/)
+  * **ALGORITHM**:
+    1. Initialise count and candidate to 0 and None respectively
+    2. For each element in nums
+       1. If count is 0, update candidate to be the current element
+       2. Increment or decrement count by 1 based on if candidate and the current element match, respectively
+       3. Return candidate
+
+**THOUGHTS**: I have already researched this algorithm before. I wonder if there is a way to keep in mind common algorithms already created to deal with certain problems...
+
+**NOTE**: IT IS NOT ALWAYS A GIVEN THAT A MAJORITY ELEMENT EXISTS. This is an incomplete version of the Boyer-Moore Majority Vote algorithm, used becuase we are told to assume is that the majority element exists. The complete algorithm, after taking the steps already outlines, then counts the number of occurences of the majority candidate. If the count is greater than (n//2), it is the majority element; else, the majority element does NOT exist.
+
+### #189 Rotate Array
+⌛11:54:66 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/rotate-array/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Solution Approach: → **O(n)**, **O(n)**
+  * **IDEA**: Use a temporary array to hold the elements in the rotated order then move them back to the original array.
+  * **ALGORITHM**:
+    1. Get the minimum number of rotations needed
+    2. EDGE CASE: If k is 0 or a multiple of n, return
+    3. Copy the array in the rotated order to a temporary array
+    4. Copy the elements back to the original array
+* Optimal Approach: 
+  * [Solution by SonuDutta](https://leetcode.com/problems/rotate-array/solutions/5189694/easy-python-solution)
+  * **ALGORITHM**:
+    1. Get the minimum number of rotations needed
+    2. Reverse the entire array in-place
+    3. Reverse the first k elements in place
+    4. Reverse the remaining n-k elements in place
+   
+**THOUGHTS**: How did this person come up with this? How did it occur to them? That's what I don't get.
+
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
