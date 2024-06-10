@@ -127,5 +127,70 @@
    
 **THOUGHTS**: How did this person come up with this? How did it occur to them? That's what I don't get.
 
+### #121 Best Time to Buy and Sell Stock
+⌛13:34:50 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Solution Approach (FAILED): → **O(n<sup>2</sup>)**, **O(n)**
+  * **IDEA**: Brute force approach >>>  Get every possible combination of buy and sell days then select the max profit of these combinations
+  * **ALGORITHM**:
+    1. EDGE CASE: If there are less than 2 elements/days, return 0
+    2. For each element/day (except the last one)
+       1. calculate the maximum possible profit by getting the maximum potential sell day (potential sell day: any day after buy day) and subtracting the current element/day from it
+       2. Add calculated profit to profits array if it is greater than 0; else (i.e. the maximum profit is actually a loss), add 0
+    3. Return the maximum of the stored profits
+  * Failed because it exceeded the time limit (9999ms) with very large arrays (stopped trying to solve @ 54:35:25)
+* Optimal Approach #1: → **O(n)**, **O(1)**
+  * [Modified Kadane's Algorithm](https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/)
+  * **ALGORITHM (original)**:
+    1. Initialize the variables max_so_far = INT_MIN and max_ending_here = 0
+    2. Run a for loop from 0 to N-1 and for each index i:
+       1. Add the arr[i] to max_ending_here
+       2. If  max_so_far is less than max_ending_here then update max_so_far  to max_ending_here
+       3. If max_ending_here < 0 then update max_ending_here = 0
+    3. Return max_so_far
+  * **ALGORITHM (modified)**:
+    1. Initialize the variables max_prof = INT_MIN and cur_prof = 0
+    <br>**NOTE**: cur_prof always returns to a minimun of 0 because, if we make a loss, we note the profit as 0, NOT the loss... lost
+    2. For each index in range 0 to n-2 (because the last element canot have a profit):
+       1. Add profit at this index (i.e. maximum value in potential sell days minus today) to cur_prof
+       2. If  max_prof is less than cur_prof then update max_prof to cur_prof
+       3. If cur_prof < 0 then update cur_prof = 0
+    3. Return max_prof
+  * See [Solution by nayankumarjha2](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solutions/4801758/2-steps-kadane-s-algorithm-brute-better-optimal-easy-video-explanation-in-hindi) for example implementation of a modified Kadane's algorithm
+* Optimal Approach #2: → **O(n)**, **O(1)**
+  * **IDEA**: Return the maximum profit of all minimum points of the graph
+  * **ALGORITHM**:
+    1. Initialise buy and sell days to day 0 and 1, respectively
+    2. While there are valid sell days:
+       1. If the buy day's price is greater than the sell day's price, update buy and sell date
+       2. Else, set maxProfit to the larger of the buy and sell days (with valid relative prices) and update the sell day
+       <br>**NOTE**: Updating the minimum stock price (a.k.a. valid buy day) with a new one will not necessarily change the maxProfit; it is possible to have a lowest stock price which will not have as much as a profit as a higher stock price did.
+
+    3. Return maxProfit
+  * Improvements:
+    *  I understand the intuition behind this one.
+
+**NOTE**:
+* I need to look for videos on Kadane's algorithm and make sure I understand HOW it works. As at now, I am unable to create an "IDEA" sentence.
+* I implemented optimal approach #2 (no relation to Kadane's Algorithm) on my own and I consider that my solution 
+  
+### #122 Best Time to Buy and Sell Stock II
+⌛07:49:18 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Solution Approach: → **O(n)**, **O(1)**
+  * **IDEA**: Add each potential profit to a counter as you iterate in pairs
+  * **ALGORITHM**:
+    1. Initialise buy and sell days to day 0 and 1, respectively
+    2. While there are possible sell days:
+       1. If the buy day's value is less than the sell day's value, subtract them and add to the total variable
+       2. Move buy and sell day indices forward by 1
+    3. Return total variable
+
+**THOUGHTS**: This is the second time I tried to solve this question. On my first attempt, I was entirely unsuccessful and stopped trying after 35+ minutes.
+
+**NOTE**:
+  * Draw out the thought process as direct as possible (this has to do with how I work through case studies; for this question, Neetcode draws out a graph).
+  * This algorithm would NOT work well if I had to return the days on which to buy and sell
+
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
