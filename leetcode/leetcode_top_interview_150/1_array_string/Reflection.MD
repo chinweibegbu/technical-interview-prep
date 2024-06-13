@@ -5,6 +5,7 @@
 * "*Optimal Approach*" covers an approach I saw in the submissions which I deemed to be more intuitive or easier than mine
 * A single asterisk (*) by a point is used to indicate that an analysis as based on a Google search
 * A double question mark (??) by a point is used to indicate a lack of trust in my personal analysis
+* --:--:-- in the time slot means that I couldn't solve it on my own
 
 ## Sorting Algorithm Problems
 
@@ -158,6 +159,7 @@
     3. Return max_prof
   * See [Solution by nayankumarjha2](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solutions/4801758/2-steps-kadane-s-algorithm-brute-better-optimal-easy-video-explanation-in-hindi) for example implementation of a modified Kadane's algorithm
 * Optimal Approach #2: → **O(n)**, **O(1)**
+  * Based on understanding of [Neetcode's explanation, NOT code](https://www.youtube.com/watch?v=1pkOgXD63yU)
   * **IDEA**: Return the maximum profit of all minimum points of the graph
   * **ALGORITHM**:
     1. Initialise buy and sell days to day 0 and 1, respectively
@@ -192,5 +194,43 @@
   * Draw out the thought process as direct as possible (this has to do with how I work through case studies; for this question, Neetcode draws out a graph).
   * This algorithm would NOT work well if I had to return the days on which to buy and sell
 
+
+### #55 Jump Game
+⌛--:--:-- &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/jump-game/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Initial Approach (FAILED): → **O(n<sup>n</sup>)**, **O(n)** ??
+  * **IDEA**: Go through every possible path as far up the array as you can go. Return when a possible path reaches the end
+  * **ALGORITHM**: See comments of `canJump_FAILED()` function in `./array_string_55.py`
+  * Failed because it did not solve 7 of 172 test cases
+* Optimal Approach #1: **O(n<sup>2</sup>)**, **O(n)**
+  * **IDEA**: Dynamic programming
+  * [Solution by isharma6624](https://leetcode.com/problems/jump-game/solutions/5010031/dp-python-soln)
+  * **ALGORITHM**: See comments of `canJump_optimal_1()` function in `./array_string_55.py`
+* Optimal Approach #2: → **O(n)**, **O(1)**
+  * Based on my understanding of [Neetcode's explanation, NOT code](https://www.youtube.com/watch?v=Yan0cv2cLy8)
+  * **IDEA**: Start from the end and iteratively. Return whether or not the goalpost becomes 0 (i.e. we can reach the end from the start).
+  * **ALGORITHM**: 
+    1. Set the goalpost to the last index in the array
+    2. For each index from the second to last to the first:
+       1. If the current index + the element at the current index reaches/exceeds the goalpost, update the goalpost to the current index
+    3. Return whether or not the goalpost is equal to 0
+
+**THOUGHTS**:
+* I tried to solve this problem two times to no avail; the first time lasted 56+ minutes and the second time 36+ minutes. I kept increasing in the number of test cases I was solving with each submission until I reached 165 out of 172.
+* I had both of these ideas but I did not know how to implement them. Is there a way to improve that?
+* I feel like a failure for having to find out Neetcode's thought process before I could code a solution. HOWEVER, I am also encouraged by the fact that I had the ideas for the brute and greedy algorithm approaches down (it was the implementation that I was struggling with).
+
+**NOTE**:
+* I need to practice dynamic programming questions because I was unable to code optimal approach #1 on my own.
+* I implemented optimal approach #2 on my own and I consider that my solution.
+
+### #45 Jump Game II
+⌛--:--:-- &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/jump-game-ii/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Optimal Approach: 
+  * [Neetcode's explanation AND code](https://www.youtube.com/watch?v=dJ7sWiOoK7g)
+  * **CODE**:
+  ![alt text](../images/neetcode_45_algorithm.png)
+  
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
