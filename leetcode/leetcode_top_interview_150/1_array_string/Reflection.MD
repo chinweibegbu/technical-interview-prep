@@ -231,6 +231,14 @@
   * [Neetcode's explanation AND code](https://www.youtube.com/watch?v=dJ7sWiOoK7g)
   * **CODE**:
   ![alt text](../images/neetcode_45_algorithm.png)
+
+### #13 Roman to Integer
+⌛50:08:53 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/merge-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Solution Approach: → **O(n)**, **O(1)**
+  * **IDEA**: Translate the characters from roman to integer in singles or pairs, depending on the value of the character after it
+
+**THOUGHTS**: Literally want to k*** myself when I know what I want to do but I am implementing it like a buffoon.
   
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
