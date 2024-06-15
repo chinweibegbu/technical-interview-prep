@@ -233,12 +233,65 @@
   ![alt text](../images/neetcode_45_algorithm.png)
 
 ### #13 Roman to Integer
-⌛50:08:53 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/merge-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150)
+⌛50:08:53 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/roman-to-integer/description/?envType=study-plan-v2&envId=top-interview-150)
 
 * Solution Approach: → **O(n)**, **O(1)**
   * **IDEA**: Translate the characters from roman to integer in singles or pairs, depending on the value of the character after it
 
 **THOUGHTS**: Literally want to k*** myself when I know what I want to do but I am implementing it like a buffoon.
-  
+
+### #12 Integer to Roman
+⌛16:26:42 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/integer-to-roman/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Solution Approach: → **O(n)**, **O(1)**
+  * **IDEA**: Iteratively remove the largest possible roman equivalent of a decimal from the current value of num using the floor division and modulus operators
+  * **ALGORITHM**:
+    1. Initialise the roman numeral output to an empty string
+    2. For each decimal equivalent (p) of a potential roman numeral:
+       1. If num is currently greater than or equal to p:
+          1. Add the roman numeral of the decimal equivalent (num//p) times to the roman numeral output 
+          2. Update num to be the remant after doing floor division
+    3. Return the roman numeral output
+
+### #380 Insert Delete GetRandom O(1)
+⌛01:50:26:41 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/insert-delete-getrandom-o1/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Initial Approach:
+  * **IDEA**: Implement a hash set from scratch using an array with linked list at each index and a 
+  * Methods:
+    * insert(): → **O(1)**, **O(1)**
+    * remove(): → **O(1)**, **O(1)**
+    * getRandom(): → **O(n)** ??, **O(1)**
+* Solution Approach #1:
+  * **IDEA**: Use a Python dictionary. Use the `el in array` function to check if the value is already in the array and use the `__delitem__()` magic function to remove a key-value pair from the dictionary.
+  * * Methods:
+    * insert(): → **O(n)** ??, **O(1)**
+    * remove(): → **O(n)** ??, **O(1)**
+    * getRandom(): → **O(1)**, **O(1)**
+* Solution Approach #2:
+  * **IDEA**: Same as Solution Approach #1 but use the `get()` method to check if the value is already in the array instead.
+  * Methods:
+    * insert(): → **O(1)**, **O(1)**
+    * remove(): → **O(1)**, **O(1)**
+    * getRandom(): → **O(1)**, **O(1)**
+* Optimal Approach:
+  * **IDEA**: Use a list to keep track of all the elements and a map to keep track of the positions of the elements in the list
+  * Improvement:
+    * Because of the map, we are able to search that a value exists in the list in O(1) rather than O(n) time
+  * [Solution by MarkSPhilip31](https://leetcode.com/problems/insert-delete-getrandom-o1/solutions/4572728/beats-99-84-users-c-java-python-javascript-explained)
+
+**THOUGHTS**: My first attempt at this problem took 36+ minutes. The idea of hashing came but I couldn't figure out how to get a random integer in O(1) time with my thought process. My second attempt was this one (took 01:50:26:41); however, the idea for the solution and the coding took less than 5 minutes. Point is I realised an oversight (see first point in **NOTE**) and ended up being able to solve the problem really quickly.  
+
+**NOTE**:
+* Do NOT reinvent the wheel (re:implementing a hashing algorithm from scratch when literally no one asked for that)
+* Useful Python functions for this exercise:
+  * `delitem(array, key_to_delete)`
+  * `randint(start_val, end_val_inclusive)`
+  * `dict.get(key, val_if_not_found)`
+  * `el in array`
+  <br> **NOTE**: Study the complexities of these operation at https://wiki.python.org/moin/TimeComplexity 
+* The optimal approach is just the one I saw the most in the solutions
+
+
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
