@@ -292,6 +292,46 @@
   <br> **NOTE**: Study the complexities of these operation at https://wiki.python.org/moin/TimeComplexity 
 * The optimal approach is just the one I saw the most in the solutions
 
+### #58 Length of Last Word
+⌛01:36:46 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/length-of-last-word/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Solution Approach #1: → **O(n)**, **O(1)**
+  * **IDEA**: Retun the length of the last element in the array result of the `split()` function
+* Solution Approach #2: → **O(n)**, **O(1)**
+  * **IDEA**: Traverse from the back of the string while counting the number of characters and return the value of the counter when you hit a space. 
+  <br>**NOTE**: I did NOT implement this one because I did not see the point of doing so. The time complexities are the same (even though, in practice, this approach will always rund faster or equally as fast to the former approach >> WHY? Because, as long as there is more than one word in the string, it will never have to actually traverse the entire length of the string, n).
+
+### #14 Longest Common Prefix
+⌛18:39:80 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/longest-common-prefix/description/?envType=study-plan-v2&envId=top-interview-150)
+
+> s: length of strs (array of words) <br>
+> p: length of the POTENTIAL prefix <br>
+> f: length of the first word in the array
+
+* Initial Approach: → **O(s*p)**, **O(1)**
+  * NOT a good approach - dealt with test cases as they came rather than having a central idea >>> Same idea as eventual solution but haphazard implementation (Needed edge case handling)
+  * See `longestCommonPrefix_initial()` function in `../../leetcode_prep/1_arrays/arrays_14.py`
+* Solution Approach: → **O(s*p)**, **O(1)**
+  * **IDEA**: Continue iterating through all the words until you reach a word which has no more characters or a character that does not cur
+  * **ALGORITHM**:
+    1. Initialise index of character under consideration to 0 and prefix to ""
+    2. Set in motion an endless loop. Within that loop:
+       1. For each index of the words array:
+          1. If we are at the beginning of the words array and the index is valid, update the character under consideration, cur
+          2. If the index is greater than or equal to the length of the word or the character at the index does not match cur, return what is stored in the prefix variable
+       2. Update prefix with cur
+       3. Increment index by 1
+* Optimal Approach: → **O(s*f)**, **O(1)**
+  * Based on code sample at a higher percentile than my Solution Approach >>> See `longestCommonPrefix_optimal()` function in `../../leetcode_prep/1_arrays/arrays_14.py`
+  * **IDEA**: Same idea as mine but much more streamlined and intuitive
+  * **ALGORITHM**:
+    1. Initialise prefix to ""
+    2. For each index (i) in the first word:
+       <br>WHY? Because the prefix cannot be longer than any word in the array<br>
+       1.  For each word (s) in string:
+           1.  If i is greater than or equal to the length of the current word OR the current character at i for s does not match that at i for the first word, return what is stored in the prefix variable
+       2.  Add the current character at i for the first word to the prefix
+    3. Return the prefix
 
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
