@@ -333,5 +333,68 @@
        2.  Add the current character at i for the first word to the prefix
     3. Return the prefix
 
+### #151 Reverse Words in a String
+⌛05:17:16 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/reverse-words-in-a-string/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Solution Approach: → **O(n)**, **O(1)**
+* **IDEA**: Use in-built Python functions
+  * **ALGORITHM**:
+    1. Use the `split()` function to divide the string into its component words
+    2. Use list slicing to reverse the resulting array
+    3. Use a for loop to join the now reversed contents of the array in a result variable
+    4. Return the result variable
+* Optimal Approach: → **O(n)**, **O(1)**
+  * **IDEA**: Same as solution approach but using the `join()` in-built Python function
+
+**THOUGHTS**: I could have sworn Python has a `join()` function? >>> It does but I was using it incorrectly. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; > `arr.join(delimiter)` ❌<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; > **`delimiter.join(arr)`** ✅
+
+### #6 Zigzag Conversion
+⌛33:38:27 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/zigzag-conversion/description/?envType=study-plan-v2&envId=top-interview-150)
+
+> n: length of string (array of words) <br>
+> r: number of rows <br>
+
+* Solution Approach: → **O(n)**, **O(r)**
+  * **IDEA**: Keep track of which row the current character should be a part of based on whether we are currently going up or down in the zigzag
+  * **ALGORITHM**:
+    1. EDGE CASE #1: If the number of rows in one (i.e. there is no zigzag-ing), return the string as is
+    2. EDGE CASE #2: If the string only has one character, return the string as is
+    3. Initialise an array of length r to hold the characters for each row of the zigzag
+    4. Start the zigzag at the SECOND index by handling the first index before the loop
+       1. Set the first row to the first character in the string
+       2. Set the row index to 1 (instead of 0)
+    5. Set the initial direction of character addition to True
+    6. For each character from the second to the last:
+       1. Add the current character to the appropriate row
+       2. Swap the direction of if we've gotten to the first or last row
+       3. Increment or decrement rowIndex by 1 depending on the direction
+    7. Return the combination of all the rows (in order) using the `join()` function
+
+**THOUGHTS**: Good job walking through the entire problem wven when you saw time passing, Chinwe <3333
+
+**NOTE**: Remember to consider constraints and come up with edge cases
+
+### #28 Find the Index of the First Occurrence in a  String 
+⌛01:34:32 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/?envType=study-plan-v2&envId=top-interview-150)
+
+> n: length of haystack <br>
+> m: length of needle <br>
+
+* Solution Approach: → **O(n*m)**, **O(1)**
+  * **IDEA**: Use the Python in-built function, `find()`
+* Optimal Approach: → **O(n*m)**, **O(1)**
+  * [Solution by camelot2001](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/solutions/4183742/easiest-big-iq-fast-solution-beats-97-of-solutions)
+  * **IDEA**: Check slice by slice in haystack for needle
+  * **ALGORITHM**:
+    1. For each index up until there is no way needle is in haystack:
+       1. If the slice of haystack from the current index (i) to i + length of needle is the same, return i
+    2. If you reach here, return -1
+
+**THOUGHTS**: I probably would not have been as confident in my solution if I had looked at the constraints and seen that the needle string was not necessarily a single character. It still worked but I would have needed a better understanding of the `find()` function than I had (now, I believe it works the way the optimal solution was implemented).
+
+**NOTE**: Python strings, lists and sets do NOT have a `get()` function. That applies to dictionaries ONLY.
+
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
