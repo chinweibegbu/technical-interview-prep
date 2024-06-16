@@ -396,5 +396,44 @@
 
 **NOTE**: Python strings, lists and sets do NOT have a `get()` function. That applies to dictionaries ONLY.
 
+### #238 Product of Array Except Self
+⌛33:52:96 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/product-of-array-except-self/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Initial Approach (FAILED): → **O(n<sup>2</sup>)**, **O(n)**
+  * **IDEA**: Brute force approach >>> Cumulate the product by iteration for each element in the array
+  * **ALGORITHM**:
+    1. Initialise an empty result array and a cumulation variable starting with 1
+    2. For each index in the array:
+       1. For each index in the array:
+          1. If the outer and inner loop indices match, skip
+          2. If the inner loop index is 0, the product is automatically zero so set cumulation variable to 0 and break
+       2. Append the value of the cumulation variable to result array
+       3. Reset the cumulation variable to 1 
+    3. Return the result array
+  * Failed because it did not meet the constraints of the question 
+* Solution Approach #1: → **O(n)**, **O(n)**
+  * **IDEA**: Pre-calculate all possible prefixes, then pre-calculate all possible suffixes then calculate the elements for the result array based on the values in the pre-calculated values
+  * **ALGORITHM**:
+    1. For each index in the array from the beginning to the second to last:
+       1. If the index is 0, set the prefix to itself
+       2. Else, set the prefix to the prefix before it multiplied by itself
+    2. For each index in the array from the end to the second:
+       1. If the index is n-1, set the suffix to itself
+       2. Else, set the suffix to the suffix after it multiplied by itself
+    3. For each index in the array:
+       1. Set the element at that index in the result array to the product of the prefix before that index and the suffix after
+       <br>**NOTE**: Remember to account for the first and last indices which do NOT have a prefix and suffix, respectively (will multiply by 1 instead)
+    4. Return the result array
+* Solution Approach #2: → **O(n)**, **O(n)**
+  * **IDEA**: Same as Solution Approach #2 but reduce the number of O(n) loops from 3 to 2 by pre-calculating the prefixes and the suffixes in the same loop
+  * Improvements:
+* Optimal Approach: 
+  * Check out [Neetcode's explanation and code](https://www.youtube.com/watch?v=bNvIQI2wAjk) then write out understanding here.
+
+**THOUGHTS**:
+* I believe I can attribute the core idea to Hint 1 of this problem in the LeetCode terminal as seen in the quote below.
+  > "*Think how you can efficiently utilize prefix and suffix products to calculate the product of all elements except self for each index. Can you pre-compute the prefix and suffix products in linear time to avoid redundant calculations?*"
+* This is the second time I tried to solve this question. On my first attempt, I couldn't wrap my head around it and stopped trying after 10+ minutes.
+
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
