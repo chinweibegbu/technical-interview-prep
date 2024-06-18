@@ -230,7 +230,7 @@
 * Optimal Approach: 
   * [Neetcode's explanation AND code](https://www.youtube.com/watch?v=dJ7sWiOoK7g)
   * **CODE**:
-  ![alt text](../images/neetcode_45_algorithm.png)
+  ![Neetcode's solution code for Leetcode #45](../images/neetcode_45_code.png)
 
 ### #13 Roman to Integer
 ⌛50:08:53 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/roman-to-integer/description/?envType=study-plan-v2&envId=top-interview-150)
@@ -434,6 +434,81 @@
 * I believe I can attribute the core idea to Hint 1 of this problem in the LeetCode terminal as seen in the quote below.
   > "*Think how you can efficiently utilize prefix and suffix products to calculate the product of all elements except self for each index. Can you pre-compute the prefix and suffix products in linear time to avoid redundant calculations?*"
 * This is the second time I tried to solve this question. On my first attempt, I couldn't wrap my head around it and stopped trying after 10+ minutes.
+
+### #134 Gas Station
+⌛--:--:-- &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/gas-station/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Initial Approach (FAILED):
+  * **IDEA**: Brute force (see `../array_string_134.py`)
+  * Failed because it exceeded the time limit
+* Optimal Approach: → **O(n)**, **O(1)**
+  * [Neetcode's explanation AND code](https://youtu.be/lJwbPZGo05A)
+  * **IDEA**: Greedy algorithm
+  * **ALGORITHM**:
+    1. If the total of the gas array is less than the total of the cost array, there is no solution so return -1
+    2. Initialise start and total to 0
+    3. For each index in gas (same as each index is cost):
+       1. Add the difference between the gas and cost of the current station to total
+       2. If the total is now less than 0, reset the total to 0 and update the start to index + 1
+    4. Return start
+
+**THOUGHTS**: Starting to feel dumb again. It is okay. The brute force solution, while not the cleanest (hence my not writing the algorithm here), was functional and would work without a time limit (took me 40+ minutes on this second attempt though; the first attempt ended in woes as I was just mirthlessly laughing as I failed medium after medium question). Also, the idea for his solution came to me - I just didn't know what to do with the information. Also, he said the question was not intuitive for himself either.
+
+### #135 Candy
+⌛--:--:-- &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/candy/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Initial Approach (FAILED): Could not wrap my head around the problem >>> stopped trying at 06:21:24
+* Optimal Approach: → **O(n)**, **O(n)**
+  * Based on my understanding of [Neetcode's explanation, NOT code](https://youtu.be/1IzCRCcK17A)
+  * **ALGORITHM**:
+    1. Initialise an array where all elements are 1 of length n
+    2. For all indices from the first to the second to last element:
+       1. If the rating for that index is higher than the left neighbour's, assign its candy to its left neighbour's candy + 1
+    3. For all indices from the last to the second element:
+       1. If the rating for that index is higher than the right neighbour's AND its assigned candy is less than or equal to its right neighbours (from the first pass), assign its candy to its right neighbour's candy + 1
+    4. Return the sum of the result/candy array
+
+**NOTE**: In my code (see `candy_optimal()` in `../array_string_135.py`), I put the second condition in both for loops but it is also necessary in the second (as that is the only place where is it possible).
+
+### #42 Trapping Rain Water
+⌛--:--:-- &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/trapping-rain-water/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Initial Approach (FAILED): Could not wrap my head around the problem >>> stopped trying at 24:03:35
+* Optimal Approach #1: → **O(n)**, **O(n)**
+  * Based on my understanding of [Neetcode's explanation, NOT code](https://www.youtube.com/watch?v=ZI2z5pq0TqA)
+  * **IDEA**: Calculate the amount of water trapped at each index based on the height of its tallest neighbours on the left and right compared to its own
+  * **ALGORITHM**:
+    1. For each index in the height array:
+       1. Set maxLefts[i] to maxLeft
+       2. Update the value of maxLeft to the current value in height IF it is larger than maxLeft
+    2. For each index in the height array:
+       1. Set maxRights[i] to maxRight
+       2. Update the value of macRight to the current value in height IF it is larger than maxRight
+    3. For each index in the height array:
+       1. Calculate the number of trapped units of water by subtracting the current height from the MINIMUM of the maxLefts and maxRights at that index
+       2. Add the maximum of that calculated value and 0 to the array of trapped units (you cannot trap a negative amount of water)
+    4. Return the sum of the array of trapped units
+* Optimal Approach #2: → **O(n)**, **O(1)**
+  * Based on [Neetcode's code](https://www.youtube.com/watch?v=ZI2z5pq0TqA) for the second approach to this problem
+  * **IDEA**: Use pointers on the left and right and use their values to determine which moves and where the calculation will take place.
+  * Improvements:
+    * Runs in linear time
+      <br>**NOTE**: WHY? Because it uses pointers instead of the arrays and removes the need to know both the maxLeft and maxRight by solving for the index on the side of the mimumum of the two (remember we do not actually need the values of both - we just need to know which is "shorter")
+  * **CODE**:
+  ![Neetcode's solution code for Leetcode #42](../images/neetcode_42_code.png)
+
+**THOUGHTS**: I had the idea down - use the heights on both side of the current index, but I did not know where to go from there. In the hard questions I have been solving, the idea of going through the array twice has come up quite a bit. I'm not sure if this is a common greedy algorithm technique but I want to add it to my arsenal of tools to deal with these problems.
+
+### #68 Text Justification
+⌛--:--:-- &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/text-justification/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Initial Approach (FAILED): Understood the problem and how to solve it but could not get my implementation to function >>> stopped trying at 01:06:11:57
+* Optimal Approach: → **O(n)**, **O(n)**
+  * [Neetcode's explanation AND code](https://youtu.be/TzMl4Z7pVh8)
+  * **CODE**:
+  ![Neetcode's solution code for Leetcode #68](../images/neetcode_68_code.png)
+
+**THOUGHTS**: It's so crazy to me that I really had the idea down and I considered all the edge cases he did (there were quite a number, relatively). Unlike the last question, I knew were to go from there but my implementation was buggy. Regardless, it is nice to see that I was most definitely on the right path.
 
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
