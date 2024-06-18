@@ -7,7 +7,7 @@
 * A double question mark (??) by a point is used to indicate a lack of trust in my personal analysis
 * --:--:-- in the time slot means that I couldn't solve it on my own
 
-## Sorting Algorithm Problems
+## Array and String Problems
 
 ### #88 Merge Sorted Array
 ⌛47:57:45 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/merge-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150)
