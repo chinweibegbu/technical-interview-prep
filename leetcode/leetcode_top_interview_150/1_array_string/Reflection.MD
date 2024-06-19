@@ -372,7 +372,7 @@
        3. Increment or decrement rowIndex by 1 depending on the direction
     7. Return the combination of all the rows (in order) using the `join()` function
 
-**THOUGHTS**: Good job walking through the entire problem wven when you saw time passing, Chinwe <3333
+**THOUGHTS**: Good job walking through the entire problem even when you saw time passing, Chinwe <3333
 
 **NOTE**: Remember to consider constraints and come up with edge cases
 
