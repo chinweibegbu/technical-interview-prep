@@ -5,6 +5,7 @@
 * "*Optimal Approach*" covers an approach I saw in the submissions which I deemed to be more intuitive or easier than mine
 * A single asterisk (*) by a point is used to indicate that an analysis as based on a Google search
 * A double question mark (??) by a point is used to indicate a lack of trust in my personal analysis
+* --:--:-- in the time slot means that I couldn't solve it on my own
 
 ## Two Pointer Problems
 
