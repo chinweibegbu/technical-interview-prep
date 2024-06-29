@@ -78,7 +78,7 @@ def isValidSudoku_solution(board: List[List[str]]) -> bool:
     # Return True if every cell is valid within its row, column and box
     return True
 
-def isValidSudoku_optimal(board: List[List[str]]) -> bool:
+def isValidSudoku_optimal_1(board: List[List[str]]) -> bool:
     # Use an array to store all non-empty elements on the board
     res = []
     

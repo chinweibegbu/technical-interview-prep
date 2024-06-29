@@ -34,7 +34,7 @@
   * **IDEA**: Sort intervals then iterate through intervals and compare their ends to determine what can be merged
   * **ALGORITHM**: See comments of `merge_solution()` function in `./intervals_56.py`
 
-NOTE: You can pass a `key` named parameter to the in-place Python `list.sort()` function. It takes a function which returns how each element in the `list` should be sorted e.g.
+**NOTE**: You can pass a `key` named parameter to the in-place Python `list.sort()` function. It takes a function which returns how each element in the `list` should be sorted e.g.
 
 ![Python sort() key parameter usage](python_sort_key.png)
 

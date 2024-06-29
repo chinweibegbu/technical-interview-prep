@@ -232,6 +232,8 @@
   * **CODE**:
   ![Neetcode's solution code for Leetcode #45](../images/neetcode_45_code.png)
 
+**TODO**: Try and re-solve this
+
 ### #13 Roman to Integer
 ⌛50:08:53 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/roman-to-integer/description/?envType=study-plan-v2&envId=top-interview-150)
 
@@ -428,7 +430,7 @@
   * **IDEA**: Same as Solution Approach #2 but reduce the number of O(n) loops from 3 to 2 by pre-calculating the prefixes and the suffixes in the same loop
   * Improvements:
 * Optimal Approach: 
-  * Check out [Neetcode's explanation and code](https://www.youtube.com/watch?v=bNvIQI2wAjk) then write out understanding here.
+  * **TODO**: Check out [Neetcode's explanation and code](https://www.youtube.com/watch?v=bNvIQI2wAjk) then write out understanding here.
 
 **THOUGHTS**:
 * I believe I can attribute the core idea to Hint 1 of this problem in the LeetCode terminal as seen in the quote below.
