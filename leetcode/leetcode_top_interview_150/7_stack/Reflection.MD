@@ -55,5 +55,39 @@
 <br> &nbsp; &nbsp; &nbsp; `split("/home")` >> `["", "home", ""]`
 <br> &nbsp; &nbsp; &nbsp; `split("/home//foo/")` >> `["", "home", "", "foo", ""]`
 
+### #155 Min Stack
+⌛09:05:67 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/min-stack/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Solution Approach: → **O(1)**, **O(n)**
+  * **IDEA**: Keep two stacks - one for the elements and one for the minimum as at when the top element was pushed + Use the `deque` object from the `collections` library
+  * **ALGORITHM**:
+    * `push(val)`: Push val onto the main stack. If the minimum stack is empty OR val is smaller than its top, push val onto the minimum stack; else, push its top.
+    * `pop()`: Pop from the main stack. Pop from the minimum stack. 
+    * `top()`: Return the top of the main stack
+    * `getMin()`: Return the top of the minimum stack.
+
+### #150 Evaluate Reverse Polish Notation
+⌛20:32:81 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/evaluate-reverse-polish-notation/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Solution Approach: → **O(n)**, **O(n)**
+  * **IDEA**: Store tokens in a stack and pop to evaluate when you reach an operator
+  * **ALGORITHM**:
+    1. Create a stack using the `deque` object of the `collections` library
+    2. Create a set to store the operators and look them up in O(1) time
+    <br>**NOTE**: In this question, an array could be used and still have O(1) runtime because we have a fixed number of operators (4).
+    3. For token in tokens:
+       1. If token in an operator:
+          1. Pop from the stack twice
+             <br>**NOTE**: The first popped element is the second operand while the second popped element is the first operand. This is important to note for subtraction and division, in which the order of operands matters.
+          2. Push the result of the computation (based on the token operator) onto the stack
+          <br>**NOTE**: I used an if confitional here but a `match-case` conditional can be used alternatively
+       2. Else, push the integer version of the token onto the stack
+    4. Return the top of the stack
+
+**THOUGHTS**: I had no idea what "truncate towards 0" meant; that would have been explained in an interview context, I believe.
+
+
+**NOTE:** To truncate is to discard the decimal portion of the result e.g. 3.8 rounded is 4.0 but 3.8 truncated is 3.0 (see an explanation on truncation vs rounding [here](https://www.ualberta.ca/computing-science/media-library/teaching-resources/java/truncation-rounding.html)). The `int()` operation around the result of dividing the operands truncated the result. 
+
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
