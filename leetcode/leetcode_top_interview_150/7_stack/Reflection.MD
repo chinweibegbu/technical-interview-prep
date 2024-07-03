@@ -89,5 +89,27 @@
 
 **NOTE:** To truncate is to discard the decimal portion of the result e.g. 3.8 rounded is 4.0 but 3.8 truncated is 3.0 (see an explanation on truncation vs rounding [here](https://www.ualberta.ca/computing-science/media-library/teaching-resources/java/truncation-rounding.html)). The `int()` operation around the result of dividing the operands truncated the result. 
 
+
+### #88 Merge Sorted Array
+⌛00:00:00 &nbsp;&nbsp; | &nbsp;&nbsp; See problem [here](https://leetcode.com/problems/merge-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150)
+
+* Initial Approach (FAILED): → **O(n)**, **O(n)**
+  * **IDEA**: Iterate through the string once, using stacks to keep track of the operands and operators
+  * Failed because the idea did not consider every case, specifically:
+    1. number with more than one digit
+    2. -ve number or expression
+  * Stopped trying at 48:12:91 with 8 out of 42 test cases passed
+  <br>**THOUGHTS**: Abysmal but expected
+  * Potential improvements based on understanding of Optimal Approach:
+    * Ignore spaces when you encounter them rather than using the `strip()` operation on the entire string only one O(n) pass is needed
+* Optimal Approach: → **O(n)**, **O(n)**
+  * [Timothy H Chang's explanation and code](https://youtu.be/A3noAzWZ9f4)
+  * **CODE**:
+  ![Timothy H Chang's solution code for Leetcode #224](../images/timothy-h-chang_244_code.png)
+
+**THOUGHTS**: Can you imagine that Neetcode didn't have a video for this problem? A first for me. 
+
+**TODO**: Re-watch and implement on your own.
+
 ## Markdown Resources
 GitHub Emojis: https://github-emoji-picker.rickstaa.dev/
