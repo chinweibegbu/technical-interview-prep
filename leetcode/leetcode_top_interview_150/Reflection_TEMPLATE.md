@@ -6,6 +6,7 @@
 * A single asterisk (*) by a point is used to indicate that an analysis as based on a Google search
 * A double question mark (??) by a point is used to indicate a lack of trust in my personal analysis
 * --:--:-- in the time slot means that I couldn't solve it on my own
+* 00:00:00 in the time slot means that I had already solved it before doing the Leetcode 150
 
 ## Sorting Algorithm Problems
 
